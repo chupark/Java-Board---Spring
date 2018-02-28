@@ -8,7 +8,6 @@
 <title>´ñ±Û´ñ±Û</title>
 <script language="javascript">
 function md(aa){
-	alert(aa.id);
 	littlRepleDelete.action="http://localhost:8082/pentode/littleRepleDelete.do";
 	littlRepleDelete.method="post";	
 	var asdf = aa.value.replace("num", "").replace("mynum","");
@@ -22,8 +21,6 @@ function md(aa){
 	
 	littlRepleDelete.num.value=num;
 	littlRepleDelete.mynum.value=mynum;
-	alert(document.getElementById("num").value);
-	alert(document.getElementById("mynum").value);	
 	littlRepleDelete.submit();
 }
 </script>

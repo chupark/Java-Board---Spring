@@ -35,7 +35,6 @@ public class UpdateController {
 			@ModelAttribute("boardVO") BoardVO boardVO, Model model) throws Exception{
 		
 	    List<BoardVO> list = boardService.selectOneView(boardVO);
-	    System.out.println(num);
 	    logger.info(list.toString());
 	    list.get(0).setContent(list.get(0).getContent().replaceAll("<br>", "\r\n"));
 	    model.addAttribute("list", list);

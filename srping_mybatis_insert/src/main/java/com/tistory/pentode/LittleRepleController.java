@@ -42,11 +42,7 @@ public class LittleRepleController {
 	@RequestMapping("/littlRepleInsert.do")
 	public String littleReInsert(@ModelAttribute ("littleReView") LittleReView littleReView, Model model) {
 		
-		littleReView.setContent(SCV.convert(littleReView.getContent()));
-		System.out.println("겟넘"+littleReView.getNum());
-		System.out.println("겟넘"+littleReView.getContent());
-		System.out.println("겟넘"+littleReView.getName());
-		
+		littleReView.setContent(SCV.convert(littleReView.getContent()));		
 		
 		boardService.littleReInsert(littleReView);
 		
@@ -57,13 +53,10 @@ public class LittleRepleController {
 	public String littleReDelete(@RequestParam("num") int num,
 			@RequestParam("mynum") int mynum, Model model, LittleReView littleReview) {
 		
-		System.out.println("들어옴");
-		System.out.println("마이넘" +mynum);
-		System.out.println("넘" +num);
 		littleReview.setMynum(mynum);
 		littleReview.setNum(num);
 		boardService.littleReDelete(littleReview);
-		System.out.println("수행함");
+
 		
 		return "redirect:repleShow.do?num="+Integer.toString(num);
 	}	
