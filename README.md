@@ -14,32 +14,9 @@ comment : using iframe
 
 나머지는 직접 개발
 
-<html>
-  <head>
-  </head>
-  <body>
-    <table>
-      <tr>
-        <td>Developer</td><td>e-mail</td><td>start_date</td>
-      </tr>
-      <tr>
-        <td>Chi Woo Park</td><td>qkrcldn12@gmail.com</td><td>2018-02-22(Thur)</td>
-      </tr>      
-    </table>
-</body>
-</html>
 
 ## Development environment
-<html>
-<body>
-<table border=2 width=100%>
-	<tr><td width=20%>OS</td><td>Windows 10</td></tr>
-	<tr><td>JDK </td><td>1.6</td></tr>
-	<tr><td>DBMS </td><td>Oracle 12c R2</td></tr>
-	<tr><td>Browser </td><td>Chrome, IE</td></tr>
-</table>
-</body>
-</html>
+
 
 ## MVC &nbsp;&nbsp;Flow
 
