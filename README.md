@@ -42,6 +42,7 @@ comment : using iframe
 </html>
 <br><br>
 ## MVC &nbsp;&nbsp;Flow
+
 ![enter image description here](https://raw.githubusercontent.com/chupark/java-practice/master/flow2.PNG)
 1. 클라이언트에서 서버로 요청, 컨트롤러 작동
 2.  컨트롤러는 각각 연결된 서비스 혹은 보조기능 수행
