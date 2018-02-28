@@ -1,3 +1,7 @@
+<html>
+  <head>
+  </head>
+  <body>
 # java-practice
 
 My first Spring Board project
@@ -19,3 +23,5 @@ comment : using iframe
     </table>
 
 
+</body>
+</html>
