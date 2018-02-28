@@ -42,6 +42,7 @@ comment : using iframe
 </html>
 
 ## MVC &nbsp;&nbsp;Flow
+
 ```mermaid
 sequenceDiagram
 Client ->> Controller(server) : Request 
@@ -50,6 +51,7 @@ Service or Util->> Controller(server) : Result
 Controller(server) ->> JSP : Total Result
 JSP ->> Client : Result
 ```
+
 Controller will start 
 1. 클라이언트에서 서버로 요청, 컨트롤러 작동
 2.  컨트롤러는 각각 연결된 서비스 혹은 보조기능 수행
@@ -59,6 +61,7 @@ Controller will start
 6. 서비스, UTIL 결과는 Controller 로 return
 7.  JSP 페이지에서는 Controller 의 return 결과를 보여줌
 8. 다음은 페이징 컨트롤러, 페이징 유틸 예시
+
 
 ```mermaid
 sequenceDiagram
