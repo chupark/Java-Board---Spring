@@ -50,7 +50,7 @@ public class PagingController {
 	    boardVO.setPageShowRecod(pageShowRecod);								//실제 데이터 클래스 페이지 셋팅
 	    
 	    
-		if(page == 0) {	//기본값이 0이기 때문에 항상 page=1 을 리다이렉트 한다
+		if(page <= 0) {	//기본값이 0이기 때문에 항상 page=1 을 리다이렉트 한다
 			return "redirect:/pagingTest.do?page=1";
 		}	  
 	   

@@ -52,4 +52,13 @@ public class LittleRepleController {
 		
 		return "redirect:repleShow.do?num="+littleReView.getNum();
 	}
+	
+	@RequestMapping("/littleRepleDelete.do")
+	public String littleReDelete(@ModelAttribute ("littleReView") LittleReView littleReView, Model model) {
+		
+		
+		boardService.littleReInsert(littleReView);
+		
+		return "redirect:repleShow.do?num="+littleReView.getNum();
+	}	
 }

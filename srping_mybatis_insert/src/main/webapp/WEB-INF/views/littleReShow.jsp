@@ -6,11 +6,19 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>´ñ±Û´ñ±Û</title>
+<script language="javascript">
+function save_fr(f) {
+        f.target = "hid_fun"
+        //f.action = "title_son_ok.asp";
+        //f.submit();
+        return false;
+}
+</script>
 </head>
 <!-- ´ñ±Û ÀÔ·Â Æû -->
 <c:url var="insertUrl" value="/littlRepleInsert.do" />
 	<form:form commandName="littleReView" action="${insertUrl}" name="littleReView" method="post">
-		<table width=792 border=1 height=80>
+		<table width=800 border=1 height=80>
 			<tr>
 				<td bgcolor=white valign=top width=10%>
 					ÀÛ¼ºÀÚ<br>
@@ -28,17 +36,22 @@
 	</form:form>
 <!-- ´ñ±Û ¸ñ·Ï -->
 <body style="background-color:#EFF7EB; padding:0px" >
+	<form:form name="frmNews" method="post" onSubmit="return save_fr(this)">
 		<c:forEach var="item" items="${list}">
-			<table border=0 cellspacing=0 cellpadding=0 width=792>
+			<table border=0 cellspacing=0 cellpadding=0 width=800>
 				<tr>
 					<td height=40 style='border-top:0.5px solid gray'>ÀÛ¼ºÀÚ : ${item.name}</td>
+					<td style='border-top:0.5px solid gray'>
+
+					</td>
 				<tr>
-					<td>${item.content}</td>
+					<td colspan=2>${item.content}</td>
 				</tr>
 				<tr>
-					<td height=40>${item.writedate} ${item.writetime}</td>
+					<td colspan=2 height=40>${item.writedate} ${item.writetime}</td>
 				</tr>
 			</table>
 		</c:forEach>
+	</form:form>
 </body>
 </html>
