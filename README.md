@@ -64,7 +64,7 @@ comment : using iframe
 
 <br>
 
-9. 그 외에 StringConverter 유틸도 존재하며 다른 유틸도 추가 예정입니다.
+9. 그 외에 StringConverter 유틸도 존재하며 다른 유틸도 추가 예정
 <br><br>
 ## Controller Role
 
@@ -74,7 +74,7 @@ comment : using iframe
 	- 게시글 입력 폼
 	- 게시글 입력 작업
 3. LittleRepleController : 댓글 입력
-	- 댓글 입력은 게시글 OneView 에서 ifram 영역에 보여집니다
+	- 댓글 입력은 게시글 OneView 에서 ifram 영역에 
 	- 댓글 입력 폼
 	- 댓글 입력 작업
 4. OneViewController : 게시글 상세
