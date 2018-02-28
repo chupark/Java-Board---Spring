@@ -107,5 +107,10 @@
 		INSERT INTO LITTLE_RE (NUM, MYNUM, NAME, CONTENT, WRITE_DATE) 
 		VALUES (#{num}, #{mynum}, #{name}, #{content}, SYSTIMESTAMP)
 	</insert>
+	
+<!-- 댓글 삭제 -->
+	<delete id="littleReDelete">
+		DELETE FROM LITTLE_RE WHERE NUM=#{num} AND MYNUM=#{mynum}
+	</delete>
 
 </mapper>

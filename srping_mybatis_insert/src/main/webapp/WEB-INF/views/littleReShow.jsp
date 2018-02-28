@@ -7,11 +7,24 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>´ñ±Û´ñ±Û</title>
 <script language="javascript">
-function save_fr(f) {
-        f.target = "hid_fun"
-        //f.action = "title_son_ok.asp";
-        //f.submit();
-        return false;
+function md(aa){
+	alert(aa.id);
+	littlRepleDelete.action="http://localhost:8082/pentode/littleRepleDelete.do";
+	littlRepleDelete.method="post";	
+	var asdf = aa.value.replace("num", "").replace("mynum","");
+	var hi = asdf.lastIndexOf("_");
+	
+	var num=asdf.substring(0,hi);
+	var mynum=asdf.substring(hi*1 + 1, asdf.length);
+	
+	document.getElementById("num").value = num;
+	document.getElementById("mynum").value = mynum;
+	
+	littlRepleDelete.num.value=num;
+	littlRepleDelete.mynum.value=mynum;
+	alert(document.getElementById("num").value);
+	alert(document.getElementById("mynum").value);	
+	littlRepleDelete.submit();
 }
 </script>
 </head>
@@ -36,13 +49,17 @@ function save_fr(f) {
 	</form:form>
 <!-- ´ñ±Û ¸ñ·Ï -->
 <body style="background-color:#EFF7EB; padding:0px" >
-	<form:form name="frmNews" method="post" onSubmit="return save_fr(this)">
+	<form id="littlRepleDelete" name="littlRepleDelete">
+		<input id="num" name="num" type="hidden" value="haha"/>
+		<input id="mynum" name="mynum" type="hidden" value="hoho"/>
 		<c:forEach var="item" items="${list}">
 			<table border=0 cellspacing=0 cellpadding=0 width=800>
 				<tr>
 					<td height=40 style='border-top:0.5px solid gray'>ÀÛ¼ºÀÚ : ${item.name}</td>
 					<td style='border-top:0.5px solid gray'>
-
+					<button type=button id="num${item.num}_mynum${item.mynum}" 
+					value="num${item.num}_mynum${item.mynum}"
+					onclick="md(this);">»èÁ¦</button>
 					</td>
 				<tr>
 					<td colspan=2>${item.content}</td>
@@ -52,6 +69,6 @@ function save_fr(f) {
 				</tr>
 			</table>
 		</c:forEach>
-	</form:form>
+	</form>
 </body>
 </html>

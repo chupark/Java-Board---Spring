@@ -28,6 +28,8 @@ public interface BoardDAO {
 	
 	void littleReInsert(LittleReView littleReView);
 	
+	void littleReDelete(LittleReView littleReview);
+	
 	List<ChagyebuVO> selectChagyebuList(ChagyebuVO vo) throws Exception;
 	Integer selectChagyebuTotal(ChagyebuVO vo) throws Exception;
 }

@@ -16,10 +16,10 @@ function resizeIframe(obj) {
 </script>
 
 <link href="<c:url value="/resources/css/boardOneView.css"/>" rel="stylesheet">
+
 </head>
 <center>
 <body>
-
 	<h1>치우의 스프링 게시판 - 원뷰</h1>
 	<c:forEach var="item" items="${list}">
 		<table width=800 border="0" cellspacing=0 cellpadding=0>

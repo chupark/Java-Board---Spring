@@ -107,4 +107,10 @@ public class BoardServiceImpl implements BoardService {
 		return map;
 	}
 
+	@Override
+	public void littleReDelete(LittleReView littleReview) {
+
+		boardMapper.littleReDelete(littleReview);
+	}
+
 }

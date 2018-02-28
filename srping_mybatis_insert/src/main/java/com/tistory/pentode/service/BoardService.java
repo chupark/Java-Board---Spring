@@ -26,5 +26,7 @@ public interface BoardService {
 	
 	void littleReInsert(LittleReView littleReView);
 	
+	void littleReDelete(LittleReView littleReview);
+	
 	BoardPage bottomPage() throws Exception;
 }

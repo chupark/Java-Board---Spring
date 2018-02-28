@@ -54,11 +54,17 @@ public class LittleRepleController {
 	}
 	
 	@RequestMapping("/littleRepleDelete.do")
-	public String littleReDelete(@ModelAttribute ("littleReView") LittleReView littleReView, Model model) {
+	public String littleReDelete(@RequestParam("num") int num,
+			@RequestParam("mynum") int mynum, Model model, LittleReView littleReview) {
 		
+		System.out.println("들어옴");
+		System.out.println("마이넘" +mynum);
+		System.out.println("넘" +num);
+		littleReview.setMynum(mynum);
+		littleReview.setNum(num);
+		boardService.littleReDelete(littleReview);
+		System.out.println("수행함");
 		
-		boardService.littleReInsert(littleReView);
-		
-		return "redirect:repleShow.do?num="+littleReView.getNum();
+		return "redirect:repleShow.do?num="+Integer.toString(num);
 	}	
 }
