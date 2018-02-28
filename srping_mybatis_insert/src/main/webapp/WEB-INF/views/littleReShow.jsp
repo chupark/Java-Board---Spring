@@ -6,25 +6,26 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>´ñ±Û´ñ±Û</title>
-</head><!-- ´ñ±Û ÀÔ·Â Æû -->
-		<c:url var="insertUrl" value="/littlRepleInsert.do" />
-			<form:form commandName="littleReView" action="${insertUrl}" name="littleReView" method="post">
-				<table width=792 border=1 height=80>
-					<tr>
-						<td bgcolor=white valign=top width=10%>
-							ÀÛ¼ºÀÚ<br>
-							<form:input path="name" type="text"/>
-							<form:input path="num" type="hidden" value="${num}"/>		
-						</td>
-						<td bgcolor=white width=85%>
-							<form:textarea path="content" style='width:99%;height:100%;resize:none' />
-						</td>
-						<td bgcolor=white width=5%>
-							<input type=submit value="µî·Ï">
-						</td>						
-					</tr>
-				</table>
-			</form:form>
+</head>
+<!-- ´ñ±Û ÀÔ·Â Æû -->
+<c:url var="insertUrl" value="/littlRepleInsert.do" />
+	<form:form commandName="littleReView" action="${insertUrl}" name="littleReView" method="post">
+		<table width=792 border=1 height=80>
+			<tr>
+				<td bgcolor=white valign=top width=10%>
+					ÀÛ¼ºÀÚ<br>
+					<form:input path="name" type="text"/>
+					<form:input path="num" type="hidden" value="${num}"/>		
+				</td>
+				<td bgcolor=white width=85%>
+					<form:textarea path="content" style='width:99%;height:100%;resize:none' />
+				</td>
+				<td bgcolor=white width=5%>
+					<input type=submit value="µî·Ï">
+				</td>						
+			</tr>
+		</table>
+	</form:form>
 <!-- ´ñ±Û ¸ñ·Ï -->
 <body style="background-color:#EFF7EB; padding:0px" >
 		<c:forEach var="item" items="${list}">
