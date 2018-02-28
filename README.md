@@ -7,7 +7,7 @@ schema : copy from Tstory blog => A developer who wants to rest.<br>
 http://pentode.tistory.com/
 
 else. do it my self<br>
-comment : using iframe
+board comment view : using iframe
 
 첫번째 스프링 게시판 프로젝트
 
