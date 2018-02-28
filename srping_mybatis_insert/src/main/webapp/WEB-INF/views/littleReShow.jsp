@@ -6,7 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>´ñ±Û´ñ±Û</title>
-</head>
+</head><!-- ´ñ±Û ÀÔ·Â Æû -->
 		<c:url var="insertUrl" value="/littlRepleInsert.do" />
 			<form:form commandName="littleReView" action="${insertUrl}" name="littleReView" method="post">
 				<table width=792 border=1 height=80>
@@ -25,6 +25,7 @@
 					</tr>
 				</table>
 			</form:form>
+<!-- ´ñ±Û ¸ñ·Ï -->
 <body style="background-color:#EFF7EB; padding:0px" >
 		<c:forEach var="item" items="${list}">
 			<table border=0 cellspacing=0 cellpadding=0 width=792>

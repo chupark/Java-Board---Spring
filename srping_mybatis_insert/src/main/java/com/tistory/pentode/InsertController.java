@@ -37,8 +37,7 @@ public class InsertController {
 	 */
 	@RequestMapping(value = "/boardInsert.do")
 	public String boardInsert(@ModelAttribute("boardVO") BoardVO boardVO, Model model) {
-		
-		System.out.println("겟 텍스트 : "+boardVO.getContent());
+
 		boardVO.setContent(contentConverter(boardVO.getContent()));
 		boardService.insertBoard(boardVO);
 		

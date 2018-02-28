@@ -5,6 +5,16 @@
   "-//W3C//DTD HTML 4.01 Transitional//EN"
   "http://www.w3.org/TR/html4/loose.dtd" >
 <html>
+<style>
+a:hover{
+	color: red;
+	text-decoration: underline;
+}
+a{
+	color: blue;
+	text-decoration: none;
+}
+</style>
 <!--
 jstl을 싫어하는 사람을 위해 
 <link href="${pageContext.request.contextPath}/resources/css/main.css" rel="stylesheet" >

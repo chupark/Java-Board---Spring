@@ -47,7 +47,6 @@ public class OneViewController {
 		JSONObject sendObject = new JSONObject();
 		JSONArray jsonArray = new JSONArray();
 		sendObject.put("repleList", jsonArray.fromObject(list2));
-		System.out.println("json : " + sendObject.toString());
 		
 		
 	    model.addAttribute("list", list);

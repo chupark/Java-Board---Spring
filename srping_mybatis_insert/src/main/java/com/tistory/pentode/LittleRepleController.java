@@ -30,10 +30,8 @@ public class LittleRepleController {
 		JSONObject sendObject = new JSONObject();
 		JSONArray jsonArray = new JSONArray();
 		List<LittleReView> list = boardService.showLittleReple(num);
-		System.out.println("a");
 		
 		String jsonString = jsonArray.fromObject(list).toString();
-		System.out.println(jsonString);
 		
 		model.addAttribute("list", list);
 		model.addAttribute("num", num);
