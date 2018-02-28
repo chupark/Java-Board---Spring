@@ -9,8 +9,6 @@ schema : copy from Tstory blog => developer who want to rest.
 else. do it my self<br>
 comment : using iframe
 
-<html>
-  <body>
     <table>
       <tr>
         <td>Developer</td><td>e-mail</td><td>start_date</td>
@@ -19,6 +17,5 @@ comment : using iframe
         <td>Chi Woo Park</td><td>qkrcldn12@gmail.com</td><td>2018-02-22(Thur)</td>
       </tr>      
     </table>
-  </body>
-</html>
-한글한글 한글한글  
+
+
