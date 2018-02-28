@@ -4,6 +4,7 @@ My first Spring Board project
 It was very hard.
 
 schema : copy from Tstory blog => developer who wants to rest.
+http://pentode.tistory.com/
 
 else. do it my self<br>
 comment : using iframe
