@@ -1,4 +1,3 @@
-<meta charset="UTF-8">
 # java-practice
 
 My first Spring Board project
@@ -22,3 +21,4 @@ comment : using iframe
     </table>
   </body>
 </html>
+한글한글 한글한글  
