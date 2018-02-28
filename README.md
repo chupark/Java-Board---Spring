@@ -51,8 +51,7 @@ Service or Util->> Controller(server) : Result
 Controller(server) ->> JSP : Total Result
 JSP ->> Client : Result
 ```
-
-Controller will start 
+ 
 1. 클라이언트에서 서버로 요청, 컨트롤러 작동
 2.  컨트롤러는 각각 연결된 서비스 혹은 보조기능 수행
 3. 서비스는 주로 SQL 관련 기능 수행, 보조기능은 페이징, 문자치환 등을 담당
