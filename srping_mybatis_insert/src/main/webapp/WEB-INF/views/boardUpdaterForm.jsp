@@ -1,4 +1,4 @@
-	<%@ page contentType="text/html; charset=euc-kr" %>
+<%@ page contentType="text/html; charset=euc-kr" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html PUBLIC
@@ -16,7 +16,7 @@
 	<center>
 		<h1>치우의 스프링 업데이트</h1>
 			<c:forEach var="item" items="${list}">
-			<form action="boardUpdate.do?num=${item.num}" name="boardVO" method="post">
+			<form action="boardUpdate.do?num=${item.num}&page=${page}" name="boardVO" method="post">
 			<table border=0 cellpadding=0 cellspacing=0 width=800>
 				<tbody>
 					<tr>

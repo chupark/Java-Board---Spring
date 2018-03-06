@@ -44,9 +44,11 @@ public class OneViewController {
 	    
 	    //서비스에서 댓글 조회
 	    List<LittleReView> list2 = boardService.showLittleReple(num);
+	    /*
 		JSONObject sendObject = new JSONObject();
 		JSONArray jsonArray = new JSONArray();
 		sendObject.put("repleList", jsonArray.fromObject(list2));
+		*/
 		
 		
 	    model.addAttribute("list", list);

@@ -46,7 +46,12 @@
 <!-- 페이징 결과를 보여줍니다 -->	
 	<select id="pagingList" resultMap = "boardVO">
 		SELECT * FROM(
-		    SELECT A.NUM, (SELECT COUNT(*) FROM LITTLE_RE B WHERE B.NUM=A.NUM) AS REPLE, ROW_NUMBER() OVER(ORDER BY NUM DESC) zNUM, NAME, TITLE, READ_COUNT, TO_char(WRITE_DATE,'yyyy-mm-dd') AS WRITE_DATE
+		    SELECT A.NUM, (SELECT COUNT(*) FROM LITTLE_RE B WHERE B.NUM=A.NUM) AS REPLE, 
+		    	   ROW_NUMBER() OVER(ORDER BY NUM DESC) zNUM, 
+		    	   NAME, 
+		    	   TITLE, 
+		    	   READ_COUNT, 
+		    	   TO_char(WRITE_DATE,'yyyy-mm-dd') AS WRITE_DATE
 		    FROM TB_BOARD A
 		    )X WHERE X.zNUM BETWEEN <if test='page == 1'> #{page} and (#{page}*#{pageShowRecod})</if>
 		     <if test='page > 1'> (#{page}*#{pageShowRecod}) - #{pageShowRecod} + 1 and (#{page}*#{pageShowRecod})</if>
@@ -61,7 +66,7 @@
 	<select id="bottomPage" resultType="boardPage">
 		SELECT COUNT(*) AS TOTAL_RECOD FROM TB_BOARD
 	</select>
-<!-- 게시판의 총 레코드 수 입니다 -->	
+<!-- 게시판의 총 레코드 수 입니다 -->
 	
 
 <!-- 게시판 글 작성 입니다 -->

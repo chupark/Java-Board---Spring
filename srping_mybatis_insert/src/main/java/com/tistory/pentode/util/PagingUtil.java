@@ -19,7 +19,7 @@ public class PagingUtil {
 	}
 	
 								//최종 페이지,		현재 페이지,	  몇개씩 보여줄지,				모델
-	public void necessaryData(int totalPage, int curPage, int pageSohwRecod, Model model) {		
+	public void drawBoard(int totalPage, int curPage, int pageSohwRecod, Model model) {		
 		int botP = 10;	//밑바닥 버튼 용도
 		//현재 페이지가 맞는지 찍어주는 로그였음
 		model.addAttribute("curPage", curPage);
@@ -59,10 +59,13 @@ public class PagingUtil {
 			}
 		}
 		
+//------------------- 바닥 페이지 출력 --------------------		
+		model.addAttribute("botNum", test);
+//------------------- 바닥 페이지 출력 --------------------		
+		
 		
 		//ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ 앞으로가기 버튼
 		//끝 페이지 네비게이션 에서는 비활성화
-		model.addAttribute("botNum", test);
 		if(strt >= 1) {
 			model.addAttribute("frontBtn", (strt + pageSohwRecod));
 		}

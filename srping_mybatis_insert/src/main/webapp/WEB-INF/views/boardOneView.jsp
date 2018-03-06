@@ -10,9 +10,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <title>Home</title>
 <script> 
+//<!-- IFRAME 리사이징.. 해당 페이지 뷰의 크기만큼 리사이즈함
 function resizeIframe(obj) { 
 	obj.style.height = (obj.contentWindow.document.body.scrollHeight)+ 'px'; 
 } 
+// -->
 </script>
 
 <link href="<c:url value="/resources/css/boardOneView.css"/>" rel="stylesheet">
@@ -60,6 +62,7 @@ function resizeIframe(obj) {
 		</table>
 		<br/>
 	<br/>
+		<!-- 댓글이 보여질 IFRAME 영역 -->
 		<iframe name="contentFrame" width=800 id="contentFrame" src="<c:url value='/repleShow.do?num=${item.num}'/>"
 			frameborder=0 marginwidth=0 marginheight=0 scrolling=no onload="resizeIframe(this);">
 		</iframe>

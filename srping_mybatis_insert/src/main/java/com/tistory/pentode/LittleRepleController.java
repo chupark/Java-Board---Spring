@@ -1,14 +1,18 @@
 package com.tistory.pentode;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
+
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.tistory.pentode.service.BoardService;
 import com.tistory.pentode.util.StringConverter;
@@ -27,11 +31,13 @@ public class LittleRepleController {
 	@RequestMapping("/repleShow.do")
 	public String loadReple(Model model, @RequestParam("num") int num,
 			@ModelAttribute ("littleReView") LittleReView littleReView) throws Exception {
+		/*
 		JSONObject sendObject = new JSONObject();
 		JSONArray jsonArray = new JSONArray();
+		*/
 		List<LittleReView> list = boardService.showLittleReple(num);
 		
-		String jsonString = jsonArray.fromObject(list).toString();
+		//String jsonString = jsonArray.fromObject(list).toString();
 		
 		model.addAttribute("list", list);
 		model.addAttribute("num", num);
@@ -49,15 +55,19 @@ public class LittleRepleController {
 		return "redirect:repleShow.do?num="+littleReView.getNum();
 	}
 	
-	@RequestMapping("/littleRepleDelete.do")
+	@RequestMapping(value="/littleRepleDelete.do")
+	//@ResponseBody
 	public String littleReDelete(@RequestParam("num") int num,
-			@RequestParam("mynum") int mynum, Model model, LittleReView littleReview) {
+			@RequestParam("mynum") int mynum, Model model, LittleReView littleReview/*,
+			@RequestBody Map <String, Object> list*/) throws Exception{
+		//System.out.println("들어옴?");
+		//System.out.println(list);
 		
 		littleReview.setMynum(mynum);
 		littleReview.setNum(num);
 		boardService.littleReDelete(littleReview);
 
 		
-		return "redirect:repleShow.do?num="+Integer.toString(num);
+		return "redirect:/repleShow.do?num="+Integer.toString(num);
 	}	
 }

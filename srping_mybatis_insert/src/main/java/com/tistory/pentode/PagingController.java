@@ -58,7 +58,7 @@ public class PagingController {
 	    	return "redirect:/pagingTest.do?page="+Integer.toString(totalPage);
 	    }
 	    
-	    pagingUtil.necessaryData(totalRecod, page, pageShowRecod, model);	    //레코드 갯수, 페이지 파라미터, 모델을 페이징 유틸리티로 보냄
+	    pagingUtil.drawBoard(totalRecod, page, pageShowRecod, model);	    //레코드 갯수, 페이지 파라미터, 모델을 페이징 유틸리티로 보냄
 	    
 	    List<BoardVO> list = boardService.pagingList(boardVO);
 	    logger.info(list.toString());
@@ -103,12 +103,12 @@ public class PagingController {
 	    
 	    int list2 = boardPage.getTotalRecod();
 	    
-	    pagingUtil.necessaryData(list2, page, pageShowRecod, model);
+	    pagingUtil.drawBoard(list2, page, pageShowRecod, model);
 	    logger.info(list.toString());
 	    
 	    model.addAttribute("list", list);
 	    model.addAttribute("list2", list2);
 	    
 	    return "boardList";
-	}	
+	}
 }

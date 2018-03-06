@@ -21,13 +21,7 @@ public class UpdateController {
 	@Resource(name = "boardService")
 	private BoardService boardService;
 	private static final Logger logger = LoggerFactory.getLogger(PagingController.class);
-	/**
-	 * �Խ��� �����
-	 * @param boardVO
-	 * @param model
-	 * @return
-	 * @throws Exception
-	 */
+	
 	
 	@RequestMapping(value = "/boardUpdateForm.do")
 	public String boardOneView(@RequestParam("page") int page,
@@ -44,13 +38,14 @@ public class UpdateController {
 	}
 	
 	@RequestMapping(value = "/boardUpdate.do")
-	public String boardInsert(@RequestParam(required=true) int num, @ModelAttribute("boardVO") BoardVO boardVO, Model model) {
+	public String boardInsert(@RequestParam(required=true) int num, @RequestParam(required=true) int page,
+			@ModelAttribute("boardVO") BoardVO boardVO, Model model) {
 		StringConverter strCvt = new StringConverter();
 		
 		boardVO.setContent(strCvt.convert(boardVO.getContent()));
 		boardService.updateBoard(boardVO);
 		
-		return "redirect:/pagingTest.do";
+		return "redirect:/boardOneView.do?num="+Integer.toString(num)+"&page="+Integer.toString(page);
 	}
 
 }

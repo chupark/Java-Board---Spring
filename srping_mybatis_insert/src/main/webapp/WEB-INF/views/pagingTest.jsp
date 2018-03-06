@@ -1,4 +1,4 @@
-<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ page contentType="text/html; charset=euc-kr" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page session="false" %>
 <!DOCTYPE html PUBLIC
@@ -16,10 +16,10 @@ a{
 }
 </style>
 <!--
-jstl을 싫어하는 사람을 위해 
+jstl�� �Ⱦ��ϴ� ����� ���� 
 <link href="${pageContext.request.contextPath}/resources/css/main.css" rel="stylesheet" >
 
-//자바 스크립트 불러올시 예시
+//�ڹ� ��ũ��Ʈ �ҷ��ý� ����
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -44,15 +44,15 @@ jstl을 싫어하는 사람을 위해
 </head>
 <body>
 	<center>
-	<h1>치우의 스프링 게시판</h1>
+	<h1>ġ���� ������ �Խ���</h1>
 	<table width=800 border="0" cellspacing=0 cellpadding=0>
 	<thead width=100%>
 	<tr>
-		<th class=headerGray width=7% height=30 align=center>번호</th>
-		<th class=headerGray width=15% align=center>이름</th>
-		<th class=headerGray width=50% align=center>제목</th>
-		<th class=headerGray width=8% align=center>조회</th>
-		<th class=headerGray width=20% align=center>작성일</th>
+		<th class=headerGray width=7% height=30 align=center>��ȣ</th>
+		<th class=headerGray width=15% align=center>�̸�</th>
+		<th class=headerGray width=50% align=center>����</th>
+		<th class=headerGray width=8% align=center>��ȸ</th>
+		<th class=headerGray width=20% align=center>�ۼ���</th>
 	</tr>
 	</thead>
 	<tbody>
@@ -75,7 +75,7 @@ jstl을 싫어하는 사람을 위해
 	<table width=800>
 		<tr>
 			<td align=right width=800>
-			[<a class="bottomNumber" href="<c:url value='/boardRegisterForm.do?page=${page}' />">글쓰기</a>]
+			[<a class="bottomNumber" href="<c:url value='/boardRegisterForm.do?page=${page}' />">�۾���</a>]
 			</td>
 		</tr>
 	</table>

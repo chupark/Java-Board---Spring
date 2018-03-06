@@ -9,19 +9,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.tistory.pentode.service.BoardService;
+import com.tistory.pentode.util.StringConverter;
 import com.tistory.pentode.vo.BoardVO;
 
 @Controller
 public class InsertController {
 	@Resource(name = "boardService")
 	private BoardService boardService;
-	/**
-	 * �Խ��� �����
-	 * @param boardVO
-	 * @param model
-	 * @return
-	 * @throws Exception
-	 */
+
+	//게시글 입력폼으로 보내줌
 	@RequestMapping(value = "/boardRegisterForm.do")
 	public String boardRegisterForm(@RequestParam ("page") int page,
 			@ModelAttribute("boardVO") BoardVO boardVO, Model model) throws Exception {
@@ -31,23 +27,14 @@ public class InsertController {
 	    return "boardRegisterForm";
 	}
 	
-	/**
-	 * ���� ����մϴ�.
-	 * @return
-	 */
+
 	@RequestMapping(value = "/boardInsert.do")
 	public String boardInsert(@ModelAttribute("boardVO") BoardVO boardVO, Model model) {
-
-		boardVO.setContent(contentConverter(boardVO.getContent()));
+		StringConverter scv = new StringConverter();
+		boardVO.setContent(scv.convert(boardVO.getContent()));
 		boardService.insertBoard(boardVO);
 		
 		return "redirect:/pagingTest.do";
 	}
-	
-	public String contentConverter(String content) {
-		content = content.replaceAll("<", "&lt;");
-		content = content.replaceAll(">", "&gt;");
-		
-		return content;
-	}
+
 }

@@ -1,4 +1,4 @@
-<%@ page contentType="text/html; charset=euc-kr" %>
+<%@ page contentType="text/html; charset=utf-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page session="false" %>
 <!DOCTYPE html PUBLIC
@@ -11,15 +11,15 @@
 </head>
 <body>
 	<center>
-	<h1>Ä¡¿ìÀÇ ½ºÇÁ¸µ °Ô½ÃÆÇ</h1>
+	<h1>ì¹˜ìš°ì˜ ìŠ¤í”„ë§ ê²Œì‹œíŒ</h1>
 	<table width=800 border="1">
 	<thead>
 	<tr>
-		<th width=7% align=center>¹øÈ£</th>
-		<th width=15% align=center>ÀÛ¼ºÀÚ</th>
-		<th width=50% align=center>Á¦¸ñ</th>
-		<th width=8% align=center>Á¶È¸</th>
-		<th width=20% align=center>ÀÛ¼ºÀÏ</th>
+		<th width=7% align=center>ë²ˆí˜¸</th>
+		<th width=15% align=center>ìž‘ì„±ìž</th>
+		<th width=50% align=center>ì œëª©</th>
+		<th width=8% align=center>ì¡°íšŒ</th>
+		<th width=20% align=center>ìž‘ì„±ì¼</th>
 	</tr>
 	</thead>
 	<tbody>
@@ -37,16 +37,16 @@
 	<table width=800>
 		<tr>
 			<td align=right width=800>
-			[<a href="<c:url value='/boardRegisterForm.do' />">µî·Ï</a>]
+			[<a href="<c:url value='/boardRegisterForm.do' />">ë“±ë¡</a>]
 			</td>
 		</tr>
 	</table>
 		total record [${list2}]<br>
-		Å×½ºÆ® [${abc}]<br>
-		ÆäÀÌÂ¡ ·¹µð <a href="<c:url value='/pagingTest.do?page=1' />">1</a>¡¡
+		í…ŒìŠ¤íŠ¸ [${abc}]<br>
+		íŽ˜ì´ì§• ë ˆë”” <a href="<c:url value='/pagingTest.do?page=1' />">1</a>ã€€
 		<a href="<c:url value='/boardList.do?page=2' />">2</a>
-		<a href="<c:url value='/boardList.do?page=3' />">3</a>¡¡
-		<a href="<c:url value='/boardList.do?page=4' />">4</a>¡¡¡¡<br>
+		<a href="<c:url value='/boardList.do?page=3' />">3</a>ã€€
+		<a href="<c:url value='/boardList.do?page=4' />">4</a>ã€€ã€€<br>
 </center>			
 </body>
 </html>
