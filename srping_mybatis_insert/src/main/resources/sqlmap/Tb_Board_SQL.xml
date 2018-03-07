@@ -118,4 +118,7 @@
 		DELETE FROM LITTLE_RE WHERE NUM=#{num} AND MYNUM=#{mynum}
 	</delete>
 
+	<update id="littleReUpdate">
+		UPDATE LITTLE_RE SET CONTENT=#{content} WHERE NUM=#{num} AND MYNUM=#{mynum}
+	</update>
 </mapper>

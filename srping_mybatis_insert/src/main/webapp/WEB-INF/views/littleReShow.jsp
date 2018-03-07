@@ -1,15 +1,15 @@
-<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ page contentType="text/html; charset=euc-kr" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>ëŒ“ê¸€ëŒ“ê¸€</title>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-kr">
+<title>´ñ±Û´ñ±Û</title>
 <script language="javascript">
 function md(aa){
-// <!-- aíƒœê·¸ í¬ìŠ¤íŠ¸ ì „ì†¡ì„ í•œë²ˆ ì‹œë„í•´ë´„ (ì‚­ì œì‹œ í•„ìš”)
+// <!-- aÅÂ±× Æ÷½ºÆ® Àü¼ÛÀ» ÇÑ¹ø ½ÃµµÇØº½ (»èÁ¦½Ã ÇÊ¿ä)
 	littlRepleDelete.action="littleRepleDelete.do";
 	littlRepleDelete.method="post";	
 	var asdf = aa.value.replace("num", "").replace("mynum","");
@@ -21,7 +21,7 @@ function md(aa){
 	document.getElementById("num").value = num;
 	document.getElementById("mynum").value = mynum;
 
-	/*<!-- jsonìœ¼ë¡œ ë§Œë“¤ê¸°
+	/*<!-- jsonÀ¸·Î ¸¸µé±â
 		var obj = new Object();
 		obj.num = num;
 		obj.mynum = mynum;
@@ -62,18 +62,83 @@ function md(aa){
 	littlRepleDelete.num.value=num;
 	littlRepleDelete.mynum.value=mynum;
 	littlRepleDelete.submit();
+	return false;
 // -->
 
 }
+
+// <!-- ´ñ±Û ¼öÁ¤¹öÆ° Å¬¸¯
+function md2(aa){
+	// <!-- aÅÂ±× Æ÷½ºÆ® Àü¼ÛÀ» ÇÑ¹ø ½ÃµµÇØº½ (»èÁ¦½Ã ÇÊ¿ä)
+		var asdf = aa.value.replace("num", "").replace("mynum","").replace("_mod","");
+		var hi = asdf.lastIndexOf("_");
+		
+		var num=asdf.substring(0,hi);
+		var mynum=asdf.substring(hi*1 + 1, asdf.length);
+
+		//ÀÎÇ²¹Ú½º º¸ÀÌ°Ô
+		document.getElementById("aa" + mynum).style.display="none";
+		document.getElementById("aa" + mynum+"_hid").style.display="";
+
+		//Àû¿ë, Ãë¼Ò¹öÆ° º¸ÀÌ°Ô
+		document.getElementById("update_"+mynum).style.display="";
+		document.getElementById("cancel_"+mynum).style.display="";
+		//¼öÁ¤¹öÆ° ¼û±â±â
+		document.getElementById("mod_"+mynum).style.display="none";
+	// -->
+}
+// ´ñ±Û ¼öÁ¤¹öÆ° Å¬¸¯ -->
+
+//<!-- ´ñ±Û ¼öÁ¤ Àû¿ë
+function md3(aa){
+	littlRepleDelete.action="littleUpdate.do";
+	littlRepleDelete.method="post";	
+	var asdf = aa.value.replace("num", "").replace("mynum","").replace("_update", "");
+	var hi = asdf.lastIndexOf("_");
+	
+	var num=asdf.substring(0,hi);
+	var mynum=asdf.substring(hi*1 + 1, asdf.length);
+	//document.getElementById("num").value = num;
+	//document.getElementById("mynum").value = mynum;
+	var modContent = document.getElementById("bb"+mynum).value;
+	//alert(modContent);
+
+	littlRepleDelete.num.value=num;
+	littlRepleDelete.mynum.value=mynum;
+	littlRepleDelete.content.value=modContent;
+	littlRepleDelete.submit();
+}
+// ´ñ±Û ¼öÁ¤ Àû¿ë -->
+
+// <!-- ´ñ±Û ¼öÁ¤ Ãë¼Ò
+function md4(aa){
+	var asdf = aa.value.replace("num", "").replace("mynum","").replace("_cancel","");
+	var hi = asdf.lastIndexOf("_");
+	
+	var mynum=asdf.substring(hi*1 + 1, asdf.length);
+
+	//ÀÎÇ²¹Ú½º ¾ø¾Ö°í ±âÁ¸ ÅØ½ºÆ® º¸¿©ÁÜ
+	//ÀÎÇ²¹Ú½º¿¡ ÀÖ´ø °ª ¿ø·¡´ë·Î µ¹·Á³õ±â
+	document.getElementById("aa" + mynum).style.display="";
+	document.getElementById("aa" + mynum+"_hid").style.display="none";
+	document.getElementById("aa" + mynum+"_hid").value =
+		document.getElementById("aa" + mynum).innerHTML;
+	//Àû¿ë, Ãë¼Ò¹öÆ° º¸ÀÌ°Ô
+	document.getElementById("update_"+mynum).style.display="none";
+	document.getElementById("cancel_"+mynum).style.display="none";
+	//¼öÁ¤¹öÆ° ¼û±â±â
+	document.getElementById("mod_"+mynum).style.display="";	
+}
+// ´ñ±Û ¼öÁ¤ Ãë¼Ò -->
 </script>
 </head>
-<!-- ëŒ“ê¸€ ì…ë ¥ í¼ -->
+<!-- ´ñ±Û ÀÔ·Â Æû -->
 <c:url var="insertUrl" value="/littlRepleInsert.do" />
 	<form:form commandName="littleReView" action="${insertUrl}" name="littleReView" method="post">
 		<table width=800 border=1 height=80>
 			<tr>
 				<td bgcolor=white valign=top width=10%>
-					ì‘ì„±ì<br>
+					ÀÛ¼ºÀÚ<br>
 					<form:input path="name" type="text"/>
 					<form:input path="num" type="hidden" value="${num}"/>		
 				</td>
@@ -81,30 +146,62 @@ function md(aa){
 					<form:textarea path="content" style='width:99%;height:100%;resize:none' />
 				</td>
 				<td bgcolor=white width=5%>
-					<input type=submit value="ë“±ë¡">
+					<input type=submit value="µî·Ï">
 				</td>						
 			</tr>
 		</table>
 	</form:form>
-<!-- ëŒ“ê¸€ ëª©ë¡ -->
+	
+<!-- ´ñ±Û ¸ñ·Ï -->
 <body style="background-color:#EFF7EB; padding:0px" >
 	<form id="littlRepleDelete" name="littlRepleDelete">
 		<input id="num" name="num" type="hidden" value="haha"/>
 		<input id="mynum" name="mynum" type="hidden" value="hoho"/>
+		<input id="content" name="content" type="hidden" value="hoho"/>
 		<c:forEach var="item" items="${list}">
 			<table border=0 cellspacing=0 cellpadding=0 width=800>
 				<tr>
-					<td width="90%" height=40 style='border-top:0.5px solid gray'>ì‘ì„±ì : ${item.name}</td>
-					<td align="right" width="10%" style='padding-right:4px;border-top:0.5px solid gray'>
-					<button type=button id="num${item.num}_mynum${item.mynum}" 
-					value="num${item.num}_mynum${item.mynum}"
-					onclick="md(this);">ì‚­ì œ</button>
+					<td width="90%" height=40 style='border-top:0.5px solid gray'>ÀÛ¼ºÀÚ : ${item.name}</td>
+					<td rowspan=3 align="right" valign=top width="10%" style='padding-right:4px;border-top:0.5px solid gray'>
+						<table>
+							<tr>
+								<td>
+									<button type=button id="num${item.num}_mynum${item.mynum}" 
+									value="num${item.num}_mynum${item.mynum}"
+									onclick="return md(this);">»èÁ¦</button>								
+								</td>
+							</tr>
+							<tr>
+								<td id="mod_${item.mynum}">
+									<button type=button id="num${item.num}_mynum${item.mynum}_mod" 
+									value="num${item.num}_mynum${item.mynum}_mod"
+									onclick="md2(this);">¼öÁ¤</button>								
+								</td>
+								<td id="update_${item.mynum}" style="display:none">
+									<button type=button id="num${item.num}_mynum${item.mynum}_update" 
+									value="num${item.num}_mynum${item.mynum}_update" style="displaye:none"
+									onclick="md3(this);">Àû¿ë</button>
+								</td>								
+							</tr>
+							<tr>
+								<td id="cancel_${item.mynum}" style="display:none">
+									<button type=button id="num${item.num}_mynum${item.mynum}" 
+									value="num${item.num}_mynum${item.mynum}_cancel" 
+									onclick="return md4(this);">Ãë¼Ò</button>								
+								</td>
+							</tr>							
+						</table>
 					</td>
-				<tr>
-					<td colspan=2>${item.content}</td>
 				</tr>
 				<tr>
-					<td colspan=2 height=40>${item.writedate} ${item.writetime}</td>
+					<!-- ±Û³»¿ë -->
+					<td width="90%" id="aa${item.mynum}">${item.content}</td>
+					<td id="aa${item.mynum}_hid" style="display:none;width:90%">
+						<input type=text style="width:100%" id="bb${item.mynum}" value="${item.content}">
+					</td>
+				</tr>
+				<tr>
+					<td  height=40>${item.writedate} ${item.writetime}</td>
 				</tr>
 			</table>
 		</c:forEach>

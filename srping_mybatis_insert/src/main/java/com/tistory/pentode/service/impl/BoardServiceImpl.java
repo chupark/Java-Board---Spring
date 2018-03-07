@@ -21,64 +21,90 @@ public class BoardServiceImpl implements BoardService {
 	private static final Logger LOGGER = Logger.getLogger(BoardServiceImpl.class);
 	
 	@Autowired
-	private BoardDAO boardMapper;
+	private BoardDAO boardMapper;	// DAO  Data Access Object
 
+//<!------------------------------게시글 기능----------------------------------
 	@Override
 	@Transactional
 	public List<BoardVO> selectBoardList() throws Exception {
+		//게시물 리스트 보여줌
 		return boardMapper.selectBoardList();
 	}
 	
 	@Override
 	@Transactional
 	public List<BoardVO> selectOneView(BoardVO boardVO) throws Exception{
+		// 게시물 원뷰		
 		return boardMapper.selectOneView(boardVO);
 	}
 
 	@Override
 	public void insertBoard(BoardVO boardVO) {
+		// 게시글 삽입
 		boardMapper.insertBoard(boardVO);
 	}
 
-	@Override
-	public BoardPage bottomPage() throws Exception{
-		return boardMapper.bottomPage();
-	}
-
-	@Override
-	public List<BoardVO> pagingList(BoardVO boardVO) throws Exception {
-		// TODO Auto-generated method stub
-		return boardMapper.pagingList(boardVO);
-	}
-
+	
 	@Override
 	public void updateBoard(BoardVO boardVO) {
-		// TODO Auto-generated method stub
+		// 게시글 수정
 		boardMapper.updateBoard(boardVO);
 	}
-
-	@Override
-	public void oneViewReadCnt(int viewCnt) {
-		boardMapper.oneViewReadCnt(viewCnt);
-	}
-
+	
+	
 	@Override
 	public void deleteBoard(int viewPage) {
+		// 게시글 삭제
 		boardMapper.deleteBoard(viewPage);
 		
 	}
 
 	@Override
-	public void littleReInsert(LittleReView littleReView) {
-		// 
-		boardMapper.littleReInsert(littleReView);
+	public void oneViewReadCnt(int viewCnt) {
+		// 게시글 조회수
+		boardMapper.oneViewReadCnt(viewCnt);
+	}
+	
+	
+	@Override
+	public BoardPage bottomPage() throws Exception{
+		// 게시글 페이징용
+		return boardMapper.bottomPage();
 	}
 
 	@Override
+	public List<BoardVO> pagingList(BoardVO boardVO) throws Exception {
+		// 게시글 페이징용2
+		return boardMapper.pagingList(boardVO);
+	}
+//  ------------------------------게시글 기능------------------------------------->
+
+//<!------------------------------댓글------------------------------------------
+	@Override
 	public List<LittleReView> showLittleReple(int pagenum) throws Exception {
-		// TODO Auto-generated method stub
+		// 댓글 목록
 		return boardMapper.showLittleReple(pagenum);
 	}
+
+	@Override
+	public void littleReInsert(LittleReView littleReView) {
+		// 댓글 삽입
+		boardMapper.littleReInsert(littleReView);
+	}
+	
+
+	@Override
+	public void littleReDelete(LittleReView littleReview) {
+		// 댓글 삭제
+		boardMapper.littleReDelete(littleReview);
+	}
+
+	@Override
+	public void littleReUpdate(LittleReView littleReView) {
+		// 댓글 수정
+		boardMapper.littleReUpdate(littleReView);
+	}
+//  ------------------------------------------------------------------------->	
 	
 	
 	@Override
@@ -105,12 +131,6 @@ public class BoardServiceImpl implements BoardService {
 		map.put("list", boardMapper.selectChagyebuList(vo));
 		
 		return map;
-	}
-
-	@Override
-	public void littleReDelete(LittleReView littleReview) {
-
-		boardMapper.littleReDelete(littleReview);
 	}
 
 }

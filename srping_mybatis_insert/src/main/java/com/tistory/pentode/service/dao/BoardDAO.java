@@ -26,6 +26,8 @@ public interface BoardDAO {
 	
 	void deleteBoard(int viewPage);
 	
+	void littleReUpdate(LittleReView littleReView);
+	
 	void littleReInsert(LittleReView littleReView);
 	
 	void littleReDelete(LittleReView littleReview);

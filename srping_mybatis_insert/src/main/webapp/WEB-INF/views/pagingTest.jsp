@@ -48,26 +48,6 @@ jstl을 싫어하는 사람을 위해
 <title>Home</title>
 </head>
 <body>
-		<ons-navigator swipeable id="myNavigator" page="page1.html"></ons-navigator>
-		
-		<template id="page1.html">
-		  <ons-page id="page1">
-		    <ons-toolbar>
-		      <div class="center">Page 1</div>
-		    </ons-toolbar>
-		
-		    <p>This is the first page.</p>
-		
-		    <ons-button id="push-button">Push page</ons-button>
-		  </ons-page>
-		</template>
-		
-		<template id="page2.html">
-		  <ons-page id="page2">
-		    <ons-toolbar>
-		      <div class="left"><ons-back-button>Page 1</ons-back-button></div>
-		      <div class="center"></div>
-		    </ons-toolbar>
 	<center>
 		<h1>치우의 스프링 게시판 dd</h1>
 		<table width=800 border="0" cellspacing=0 cellpadding=0>
@@ -120,21 +100,6 @@ jstl을 싫어하는 사람을 위해
 			<c:if test="${frontBtn != 0}" >
 				<a class="movePage" href="<c:url value='/pagingTest.do?page=${frontBtn}'/>">Next</a>
 			</c:if>
-	</center>
-		  </ons-page>
-		</template>
-  <script>
-	  document.addEventListener('init', function(event) {
-		  var page = event.target;
-	
-		  if (page.id === 'page1') {
-		    page.querySelector('#push-button').onclick = function() {
-		      document.querySelector('#myNavigator').pushPage('page2.html', {data: {title: 'Page 2'}});
-		    };
-		  } else if (page.id === 'page2') {
-		    page.querySelector('ons-toolbar .center').innerHTML = page.data.title;
-		  }
-		});
-  </script>					
+	</center>				
 </body>
 </html>
