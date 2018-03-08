@@ -27,7 +27,7 @@ public class InsertController {
 	    return "boardRegisterForm";
 	}
 	
-
+	//게시글 실제 삽입 수행
 	@RequestMapping(value = "/boardInsert.do")
 	public String boardInsert(@ModelAttribute("boardVO") BoardVO boardVO, Model model) {
 		StringConverter scv = new StringConverter();

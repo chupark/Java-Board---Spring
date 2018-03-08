@@ -155,9 +155,12 @@ function md4(aa){
 <!-- 댓글 목록 -->
 <body style="background-color:#EFF7EB; padding:0px" >
 	<form id="littlRepleDelete" name="littlRepleDelete">
+		<!-- 전송될 데이터 집합 -->
 		<input id="num" name="num" type="hidden" value="haha"/>
 		<input id="mynum" name="mynum" type="hidden" value="hoho"/>
 		<input id="content" name="content" type="hidden" value="hoho"/>
+		<!-- 여기까지 전송될 데이터 집합 -->
+		
 		<c:forEach var="item" items="${list}">
 			<table border=0 cellspacing=0 cellpadding=0 width=800>
 				<tr>
@@ -165,18 +168,21 @@ function md4(aa){
 					<td rowspan=3 align="right" valign=top width="10%" style='padding-right:4px;border-top:0.5px solid gray'>
 						<table>
 							<tr>
-								<td>
+								<td><!-- 삭제버튼은 항상 활성화 -->
 									<button type=button id="num${item.num}_mynum${item.mynum}" 
 									value="num${item.num}_mynum${item.mynum}"
-									onclick="return md(this);">삭제</button>								
+									onclick="return md(this);">삭제</button>
 								</td>
 							</tr>
-							<tr>
+							<tr><!-- 수정 버튼 클릭시 수정 버튼 display false-->
+									<!-- 취소 버튼 클릭시 수정 버튼 display true-->
 								<td id="mod_${item.mynum}">
 									<button type=button id="num${item.num}_mynum${item.mynum}_mod" 
 									value="num${item.num}_mynum${item.mynum}_mod"
 									onclick="md2(this);">수정</button>								
 								</td>
+								<!-- 수정 버튼 클릭시 적용  버튼 display true-->
+									<!-- 취소 버튼 클릭시 적용  버튼 display false-->
 								<td id="update_${item.mynum}" style="display:none">
 									<button type=button id="num${item.num}_mynum${item.mynum}_update" 
 									value="num${item.num}_mynum${item.mynum}_update" style="displaye:none"
@@ -184,6 +190,8 @@ function md4(aa){
 								</td>								
 							</tr>
 							<tr>
+								<!-- 수정 버튼 클릭시 취소  버튼 display true-->
+									<!-- 취소 버튼 클릭시 취소  버튼 display false-->
 								<td id="cancel_${item.mynum}" style="display:none">
 									<button type=button id="num${item.num}_mynum${item.mynum}" 
 									value="num${item.num}_mynum${item.mynum}_cancel" 
@@ -194,8 +202,12 @@ function md4(aa){
 					</td>
 				</tr>
 				<tr>
-					<!-- 글내용 -->
+					<!-- 글내용 수정버튼 클릭시 display false -->
+						<!-- 글내용 취소버튼 클릭시 display true -->
 					<td width="90%" id="aa${item.mynum}">${item.content}</td>
+					
+					<!-- 글내용 수정버튼 클릭시 display true -->
+						<!-- 글내용 취소버튼 클릭시 display false -->					
 					<td id="aa${item.mynum}_hid" style="display:none;width:90%">
 						<input type=text style="width:100%" id="bb${item.mynum}" value="${item.content}">
 					</td>

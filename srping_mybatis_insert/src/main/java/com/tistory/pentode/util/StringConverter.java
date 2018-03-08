@@ -9,7 +9,17 @@ public class StringConverter {
 		
 		a = a.replaceAll("<", "&lt;");
 		a = a.replaceAll(">", "&gt;");
+		a = a.replaceAll("\r\n", "<br>");
 		
+		
+		return a;
+	}
+	//textarea 출력 메세지 컨버트
+	public String tAreaConvert(String inputString) {
+		
+		String a = inputString;
+		
+		a = a.replaceAll("<br>", "\r\n");
 		
 		return a;
 	}

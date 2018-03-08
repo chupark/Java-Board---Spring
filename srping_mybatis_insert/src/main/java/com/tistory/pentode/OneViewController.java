@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.tistory.pentode.service.BoardService;
+import com.tistory.pentode.util.StringConverter;
 import com.tistory.pentode.vo.BoardVO;
 import com.tistory.pentode.vo.ChagyebuVO;
 import com.tistory.pentode.vo.LittleReView;
@@ -36,11 +37,12 @@ public class OneViewController {
 			@RequestParam("num") int num,
 			@ModelAttribute("boardVO") BoardVO boardVO, Model model) throws Exception{
 		boardService.oneViewReadCnt(num);
+		StringConverter strCvt = new StringConverter();
 	    List<BoardVO> list = boardService.selectOneView(boardVO);
 	    
 	    logger.info(list.toString());
 
-	    list.get(0).setContent(list.get(0).getContent().replaceAll("\r", "<br>"));
+	    list.get(0).setContent(strCvt.convert(list.get(0).getContent()));
 	    
 	    //서비스에서 댓글 조회
 	    List<LittleReView> list2 = boardService.showLittleReple(num);

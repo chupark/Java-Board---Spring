@@ -49,7 +49,7 @@ jstl을 싫어하는 사람을 위해
 </head>
 <body>
 	<center>
-		<h1>치우의 스프링 게시판 dd</h1>
+		<h1>치우의 스프링 게시판 </h1>
 		<table width=800 border="0" cellspacing=0 cellpadding=0>
 		<thead width=100%>
 		<tr>
