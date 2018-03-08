@@ -27,11 +27,11 @@ public class LittleRepleController {
 	private BoardService boardService;
 	
 	StringConverter SCV = new StringConverter();
-	
+	//댓글 및 댓글 폼을 보여줌
 	@RequestMapping("/repleShow.do")
 	public String loadReple(Model model, @RequestParam("num") int num,
 			@ModelAttribute ("littleReView") LittleReView littleReView) throws Exception {
-		/*
+		/*	json 통신시 해제해줌
 		JSONObject sendObject = new JSONObject();
 		JSONArray jsonArray = new JSONArray();
 		*/
@@ -44,10 +44,10 @@ public class LittleRepleController {
 		
 		return "littleReShow";
 	}
-	
+	//댓글 삽입
 	@RequestMapping("/littlRepleInsert.do")
 	public String littleReInsert(@ModelAttribute ("littleReView") LittleReView littleReView, Model model) {
-		
+		//기본 태그문자, 개행문자 처리
 		littleReView.setContent(SCV.convert(littleReView.getContent()));
 		
 		boardService.littleReInsert(littleReView);
@@ -55,11 +55,12 @@ public class LittleRepleController {
 		return "redirect:repleShow.do?num="+littleReView.getNum();
 	}
 	
-	
+	//댓글 수정
 	@RequestMapping(value="/littleUpdate.do")
-	//@ResponseBody
-	public String littleUpdate(@RequestParam("num") int num,
+	//@ResponseBody json 통신시 해제
+	public String littReUpdate(@RequestParam("num") int num,
 			@RequestParam("mynum") int mynum, Model model, LittleReView littleReview/*,
+			json 통신시 해제
 			@RequestBody Map <String, Object> list*/) throws Exception{
 
 		boardService.littleReUpdate(littleReview);
@@ -67,11 +68,12 @@ public class LittleRepleController {
 		return "redirect:/repleShow.do?num="+Integer.toString(num);
 	}	
 	
-	
+	//댓글 삭제
 	@RequestMapping(value="/littleRepleDelete.do")
-	//@ResponseBody
+	//@ResponseBody json 통신시 해제
 	public String littleReDelete(@RequestParam("num") int num,
 			@RequestParam("mynum") int mynum, Model model, LittleReView littleReview/*,
+			json 통신시 해제
 			@RequestBody Map <String, Object> list*/) throws Exception{
 		
 		boardService.littleReDelete(littleReview);

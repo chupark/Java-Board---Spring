@@ -18,10 +18,10 @@ public class PagingUtil {
 		this.totalPageNum = totalPageNum;
 	}
 	
-								//최종 페이지,		현재 페이지,	  몇개씩 보여줄지,				모델
+								//최종 페이지,		현재 페이지,	  몇개씩 보여줄지,			모델
 	public void drawBoard(int totalPage, int curPage, int pageSohwRecod, Model model) {		
 		int botP = 10;	//밑바닥 버튼 용도
-		//현재 페이지가 맞는지 찍어주는 로그였음
+		//현재 페이지가 맞는지 원뷰 등 파라미터 전달로 쓰임
 		model.addAttribute("curPage", curPage);
 		
 		//총 페이지 갯수 계산

@@ -41,7 +41,7 @@ public class UpdateController {
 	}
 	//실제 업데이트 수행
 	@RequestMapping(value = "/boardUpdate.do")
-	public String boardInsert(@RequestParam(required=true) int num, @RequestParam(required=true) int page,
+	public String boardUpdate(@RequestParam(required=true) int num, @RequestParam(required=true) int page,
 			@ModelAttribute("boardVO") BoardVO boardVO, Model model) {
 		StringConverter strCvt = new StringConverter();
 		//태그, 개행문자 등을 처리해아함

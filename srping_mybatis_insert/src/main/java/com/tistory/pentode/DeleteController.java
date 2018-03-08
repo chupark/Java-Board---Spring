@@ -14,7 +14,7 @@ public class DeleteController {
 	private BoardService boardService;
 	
 	@RequestMapping(value = "/boardDelete.do")
-	public String boardInsert(@RequestParam("num") int num,@RequestParam("page") int page) {
+	public String boardDelete(@RequestParam("num") int num,@RequestParam("page") int page) {
 		boardService.deleteBoard(num);
 				
 		return "redirect:/pagingTest.do?page="+Integer.toString(page);
